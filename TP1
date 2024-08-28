@@ -1,0 +1,61 @@
+1) Crear una clase llamada CCuenta que tendrá los siguientes atributos: titular y cantidad (puede
+tener decimales).
+Crear constructores .
+Tendrá dos métodos especiales:
+ ingresar(double cantidad): se ingresa una cantidad a la cuenta, si la cantidad introducida
+es negativa, no se hará nada.
+ retirar(double cantidad): se retira una cantidad a la cuenta, si restando la cantidad actual
+a la que nos pasan es negativa, la cantidad de la cuenta pasa a ser 0.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class CCuenta
+{
+	private: 
+	
+	string titular;
+	double cantidad;
+	
+	public:
+		
+		CCuenta(string titular, double cantidad);
+		
+		string SetTit(string t);
+		double SetCant(double c);
+};
+
+CCuenta::CCuenta(string t, double c){
+	
+	titular = SetTit(t);
+	cantidad = SetCant(c);
+}
+
+string CCuenta::SetTit(string t){
+	titular = t;
+	return titular;
+}
+
+double CCuenta::SetCant(double c){
+	cantidad = c;
+	return cantidad;
+}
+int main(){
+	string t;
+	double c;
+	
+	cout<<"Ingrese su nombre"<<endl;
+	getline(cin, t);
+	
+	cout<<"Cuanto dinero desea ingresar?"<<endl;
+	cin>>c;
+	
+	CCuenta cuenta(t,c);
+	
+	cout<<"Nombre: "<<cuenta.SetTit(t)<<endl;
+	
+	if(c>0){
+		cout<<"Monto: "<<cuenta.SetCant(c)<<endl;
+	}
+	return 0;
+}
